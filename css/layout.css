@@ -466,6 +466,86 @@ mjx-container {
 .nav-menu-item:hover {
   cursor: pointer;
 }
+@media screen and (max-width: 1023px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(255,255,255,0.9);
+    z-index: 99;
+    justify-content: left;
+  }
+  .head--sticky {
+    position: relative;
+    backdrop-filter: none;
+    background: none;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    height: 0;
+    transition: height 200ms ease-out;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: rgba(255,255,255,0.9);
+    overflow: hidden;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px;
+  }
+  .nav-menu-item {
+    margin: 20px 0;
+  }
+  .nav-logo {
+    height: 40px;
+    width: 40px;
+  }
+  .nav-logo img {
+    height: 40px;
+    width: 40px;
+  }
+  .nav-btn {
+    display: block;
+    position: absolute;
+    left: 0;
+    padding: 10px 20px;
+    height: 40px;
+    width: 40px;
+  }
+  .nav-btn::before,
+  .nav-btn::after {
+    transition: transform 200ms ease-out;
+    content: '';
+    background: #333;
+    width: 30px;
+    height: 2px;
+    border-radius: 1px;
+    position: absolute;
+  }
+  .nav-btn::before {
+    top: 25px;
+  }
+  .nav-btn::after {
+    bottom: 25px;
+  }
+  #navBtn:checked ~ .nav-right .nav-menu {
+    height: 100%;
+  }
+  #navBtn:checked ~ .nav-btn::before {
+    transform: translateY(4px) rotateZ(45deg);
+  }
+  #navBtn:checked ~ .nav-btn::after {
+    transform: translateY(-4px) rotateZ(-45deg);
+  }
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+}
 .foot {
   background-color: #000;
 }
